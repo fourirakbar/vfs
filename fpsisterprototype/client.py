@@ -10,7 +10,6 @@ if sys.version_info < (3, 0):
 # uri = input("Enter the uri of the jebret: ").strip()
 uri ="PYRONAME:example.jebret"
 jebret = Pyro4.Proxy(uri)
-
 while True:
 	commands = []
 	print currdir+'# ',
@@ -26,7 +25,7 @@ while True:
 	elif commands[0] == 'rm':
 		jebret.removefile(currdir+'/'+commands[1])
 	elif commands[0] == 'cd':
-		print jebret.changedirectory(currdir+'/'+commands[1])
+		print jebret.changedirectory(commands[1])
 	elif commands[0] == 'cp':
 		if '/' in commands[2]:
 			var1 = commands[2].split('/')[0]

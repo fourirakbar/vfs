@@ -2,7 +2,7 @@ import os
 import Pyro4
 from shutil import copyfile
 
-# currdir = os.path.abspath('.')
+currdir = os.path.abspath('.')
 
 @Pyro4.expose
 class Jebret(object):
@@ -25,8 +25,13 @@ class Jebret(object):
 	#cd
 	def changedirectory(self, path):
 		print path
-		os.chdir(path)
-		listdir()
+		os.chdir(currdir+'/'+path)
+		for i, file in enumerate(os.listdir(currdir+'/'+path)):
+			print file
+
+		# currdir = os.path.abspath('.')
+		# return currdir
+		
 
 	#cp
 	def copy(self, src, dst):
